@@ -7,9 +7,10 @@
 <meta name="theme-color" content="#050b1b">
 <title>From Desert to Space | Space Tourism Conference 2027</title>
 <meta name="description" content="Join HSW Explorations in Dubai for From Desert to Space: Technology and Innovation in Space Tourism, 23–26 September 2027 at the Museum of the Future.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -134,9 +135,9 @@ section { padding: 95px 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(4, 10, 24, .84);
+  background: rgba(4, 10, 24, .9);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(120, 180, 255, .12);
+  border-bottom: 1px solid rgba(120, 180, 255, .16);
 }
 
 .nav-inner {
@@ -148,20 +149,18 @@ section { padding: 95px 0; }
 }
 
 .brand {
+  display: inline-block;
   font-family: Orbitron, sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  line-height: 1.5;
-}
-
-.brand span {
-  display: block;
-  font-family: "DM Sans", sans-serif;
-  color: var(--cyan);
-  font-size: 9px;
-  letter-spacing: 3px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  line-height: 1.4;
+  background: linear-gradient(100deg, #ffffff 5%, #8ce5ff 55%, #b1a4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 24px rgba(83, 183, 255, .12);
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -316,9 +315,7 @@ section { padding: 95px 0; }
 .label-people { bottom: 55px; left: -3px; }
 
 /* EVENT FACTS */
-.facts-strip {
-  padding: 0 0 45px;
-}
+.facts-strip { padding: 0 0 45px; }
 
 .facts-grid {
   display: grid;
@@ -345,10 +342,7 @@ section { padding: 95px 0; }
   margin-bottom: 8px;
 }
 
-.fact span {
-  color: var(--muted);
-  font-size: 11px;
-}
+.fact span { color: var(--muted); font-size: 11px; }
 
 /* VIDEO */
 .video-section {
@@ -363,10 +357,7 @@ section { padding: 95px 0; }
   margin-top: 42px;
 }
 
-.insight-column {
-  display: grid;
-  gap: 17px;
-}
+.insight-column { display: grid; gap: 17px; }
 
 .insight-card {
   padding: 21px;
@@ -382,10 +373,7 @@ section { padding: 95px 0; }
   margin-bottom: 10px;
 }
 
-.insight-card h3 {
-  font-size: 14px;
-  margin: 0 0 8px;
-}
+.insight-card h3 { font-size: 14px; margin: 0 0 8px; }
 
 .insight-card p {
   color: var(--muted);
@@ -414,44 +402,69 @@ section { padding: 95px 0; }
   background: #000;
 }
 
-/* TOPICS */
-.topic-grid {
+/* WHAT WE WILL EXPLORE - PHOTO CARDS */
+.explore-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 38px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.topic-card {
-  padding: 25px;
-  border-radius: 18px;
-  background: linear-gradient(145deg, rgba(17, 38, 72, .9), rgba(9, 20, 42, .9));
+.explore-card {
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(17, 38, 72, .94), rgba(9, 20, 42, .96));
   border: 1px solid var(--line);
-  transition: .25s ease;
+  transition: .3s ease;
 }
 
-.topic-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(125, 234, 255, .55);
+.explore-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(125, 234, 255, .6);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .25);
 }
 
-.topic-icon {
-  width: 43px;
-  height: 43px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
-  background: rgba(83, 183, 255, .13);
-  font-size: 20px;
-  margin-bottom: 17px;
+.explore-image {
+  width: 100%;
+  height: 245px;
+  overflow: hidden;
+  background: #101d34;
 }
 
-.topic-card h3 { font-size: 15px; margin: 0 0 10px; }
+.explore-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
 
-.topic-card p {
+.explore-card:hover .explore-image img {
+  transform: scale(1.06);
+}
+
+.explore-copy {
+  padding: 24px 25px 27px;
+}
+
+.explore-number {
+  color: var(--cyan);
+  font-family: Orbitron, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 11px;
+}
+
+.explore-copy h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.explore-copy p {
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.75;
+  font-size: 13px;
+  line-height: 1.8;
   margin: 0;
 }
 
@@ -506,32 +519,6 @@ section { padding: 95px 0; }
   background: rgba(83, 183, 255, .12);
 }
 
-/* PHOTO GALLERY */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-top: 35px;
-}
-
-.gallery-item {
-  min-height: 210px;
-  border-radius: 17px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #101d34;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  min-height: 210px;
-  object-fit: cover;
-  transition: transform .5s ease;
-}
-
-.gallery-item:hover img { transform: scale(1.06); }
-
 /* AUDIENCE */
 .audience-grid {
   display: grid;
@@ -582,10 +569,7 @@ section { padding: 95px 0; }
   margin-bottom: 13px;
 }
 
-.day-card h3 {
-  font-size: 16px;
-  margin: 0 0 12px;
-}
+.day-card h3 { font-size: 16px; margin: 0 0 12px; }
 
 .day-card p {
   color: var(--muted);
@@ -765,50 +749,139 @@ footer {
 .floating-label { animation: float 5s ease-in-out infinite; }
 body::before { animation: twinkle 5s ease-in-out infinite; }
 
-/* RESPONSIVE */
+/* TABLET */
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-description { margin-left: auto; margin-right: auto; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-meta, .hero-actions { justify-content: center; }
+
   .hero-visual { min-height: 450px; }
+
   .video-layout { grid-template-columns: 1fr 1fr; }
-  .video-frame { grid-column: 1 / -1; grid-row: 1; }
+
+  .video-frame {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
   .insight-column { grid-row: 2; }
+
   .venue-grid, .registration-layout { grid-template-columns: 1fr; }
+
   .audience-grid { grid-template-columns: repeat(3, 1fr); }
+
   .programme-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* MOBILE */
 @media (max-width: 650px) {
   section { padding: 68px 0; }
+
   .container { width: min(100% - 30px, 1160px); }
+
   .nav-inner { min-height: 65px; }
+
+  .brand {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
   .nav-links { display: none; }
-  .hero { padding: 55px 0 65px; min-height: auto; }
+
+  .nav-cta {
+    font-size: 10px;
+    padding: 10px 12px;
+  }
+
+  .hero {
+    padding: 25px 0 65px;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* CIRCULAR PHOTO FIRST ON MOBILE */
+  .hero-visual {
+    order: -1;
+    width: 100%;
+    min-height: 350px;
+    margin-bottom: 8px;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
   .hero h1 { letter-spacing: -1px; }
-  .hero-visual { min-height: 370px; }
-  .astronaut-circle { width: min(290px, 75vw); }
-  .orbit { width: 350px; height: 145px; }
-  .orbit-two { width: 370px; height: 185px; }
+
+  .hero-visual .astronaut-circle {
+    width: min(290px, 75vw);
+  }
+
+  .orbit {
+    width: 350px;
+    height: 145px;
+  }
+
+  .orbit-two {
+    width: 370px;
+    height: 185px;
+  }
+
   .label-days { right: 0; top: 20px; }
   .label-people { left: 0; bottom: 20px; }
+
   .facts-grid { grid-template-columns: repeat(2, 1fr); }
+
   .fact:nth-child(2) { border-right: 0; }
+
   .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+
   .video-layout { grid-template-columns: 1fr; }
-  .video-frame { grid-column: auto; grid-row: auto; width: min(100%, 310px); }
+
+  .video-frame {
+    grid-column: auto;
+    grid-row: auto;
+    width: min(100%, 310px);
+  }
+
   .insight-column { grid-row: auto; }
-  .topic-grid { grid-template-columns: 1fr; }
+
+  .explore-grid { grid-template-columns: 1fr; }
+
+  .explore-image { height: 220px; }
+
   .venue-image img { height: 260px; }
+
   .audience-grid { grid-template-columns: repeat(2, 1fr); }
+
   .programme-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item, .gallery-item img { min-height: 150px; }
+
   .form-grid { grid-template-columns: 1fr; gap: 0; }
+
   .registration-form { padding: 21px; }
-  .footer-inner { text-align: center; justify-content: center; }
-  .footer-links { justify-content: center; flex-wrap: wrap; }
+
+  .footer-inner {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 </style>
 </head>
@@ -818,10 +891,8 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- NAVIGATION -->
 <header class="navbar">
   <div class="container nav-inner">
-   <a class="brand" href="#home">
-  HSW EXPLORATIONS
-  <span>SPACE TOURISM CONFERENCE 2027</span>
-</a>
+
+    <a class="brand" href="#home">HSW EXPLORATIONS</a>
 
     <nav class="nav-links">
       <a href="#about">About</a>
@@ -831,6 +902,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     </nav>
 
     <a class="nav-cta" href="#register">Register Interest ↗</a>
+
   </div>
 </header>
 
@@ -840,6 +912,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
   <div class="container hero-grid">
 
     <div class="hero-content">
+
       <div class="eyebrow">HSW Explorations presents · Dubai 2027</div>
 
       <h1>
@@ -868,9 +941,11 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         <a class="btn" href="#register">Register Your Interest ↗</a>
         <a class="btn btn-outline" href="#about">Explore the Conference</a>
       </div>
+
     </div>
 
     <div class="hero-visual">
+
       <div class="orbit"></div>
       <div class="orbit orbit-two"></div>
 
@@ -889,6 +964,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         <strong>200+</strong>
         <small>EXPECTED PARTICIPANTS</small>
       </div>
+
     </div>
 
   </div>
@@ -897,30 +973,39 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- KEY FACTS -->
 <div class="container facts-strip">
   <div class="facts-grid">
+
     <div class="fact">
       <strong>23–26 SEP</strong>
       <span>Conference dates</span>
     </div>
+
     <div class="fact">
       <strong>4 DAYS</strong>
       <span>Conference duration</span>
     </div>
+
     <div class="fact">
       <strong>DUBAI, UAE</strong>
       <span>Host city</span>
     </div>
+
     <div class="fact">
       <strong>200+</strong>
       <span>Expected participants</span>
     </div>
+
   </div>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
+
     <div class="eyebrow">Beyond the ordinary</div>
-    <h2 class="section-title">A new perspective on <span class="gradient-text">space tourism</span></h2>
+
+    <h2 class="section-title">
+      A new perspective on <span class="gradient-text">space tourism</span>
+    </h2>
 
     <p class="section-intro">
       From Desert to Space explores how technology and innovation are opening
@@ -929,14 +1014,20 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       tourism, creating opportunities to exchange knowledge, discover ideas
       and build meaningful connections.
     </p>
+
   </div>
 </section>
 
 <!-- VIDEO AND INSIGHTS -->
 <section class="video-section">
   <div class="container">
+
     <div class="eyebrow">Explore the vision</div>
-    <h2 class="section-title">The future is <span class="gradient-text">closer than you think</span></h2>
+
+    <h2 class="section-title">
+      The future is <span class="gradient-text">closer than you think</span>
+    </h2>
+
     <p class="section-intro">
       Discover the vision behind a future where exploration, innovation and
       tourism reach beyond our planet.
@@ -945,6 +1036,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     <div class="video-layout">
 
       <div class="insight-column">
+
         <article class="insight-card">
           <div class="number">01 / EXPLORATION</div>
           <h3>Beyond Earth's Boundaries</h3>
@@ -962,6 +1054,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
           <h3>A Growing Industry</h3>
           <p>Consider the opportunities for businesses, researchers, students and professionals in this developing field.</p>
         </article>
+
       </div>
 
       <div class="video-frame">
@@ -973,14 +1066,17 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
           playsinline
           preload="metadata"
           poster="https://thehairworkshop.com/wp-content/uploads/2026/10/astronaut.jpeg">
+
           <source
             src="https://thehairworkshop.com/wp-content/uploads/2026/10/WhatsApp-Video-2026-10-12-at-20.18.45.mp4"
             type="video/mp4">
+
           Your browser does not support the video tag.
         </video>
       </div>
 
       <div class="insight-column">
+
         <article class="insight-card">
           <div class="number">04 / DISCOVERY</div>
           <h3>Research and Knowledge</h3>
@@ -998,58 +1094,100 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
           <h3>Inspiring New Generations</h3>
           <p>Encourage students and young professionals to explore opportunities in the future space economy.</p>
         </article>
+
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- TOPICS -->
+<!-- WHAT WILL WE EXPLORE -->
 <section id="topics">
   <div class="container">
+
     <div class="eyebrow">Conference focus</div>
-    <h2 class="section-title">What will we <span class="gradient-text">explore?</span></h2>
+
+    <h2 class="section-title">
+      What will we <span class="gradient-text">explore?</span>
+    </h2>
+
     <p class="section-intro">
-      A range of perspectives on the technologies, industries and ideas
+      A visual journey through the technologies, destinations and ideas
       contributing to the future of space tourism.
     </p>
 
-    <div class="topic-grid">
+    <div class="explore-grid">
 
-      <article class="topic-card">
-        <div class="topic-icon">🚀</div>
-        <h3>Space Tourism & Exploration</h3>
-        <p>Understanding the emerging space tourism landscape and the possibilities of commercial human spaceflight.</p>
+      <article class="explore-card">
+        <div class="explore-image">
+          <img
+            src="https://thehairworkshop.com/wp-content/uploads/2026/10/Museum-of-the-future.jpeg"
+            alt="Museum of the Future and futuristic architecture">
+        </div>
+
+        <div class="explore-copy">
+          <div class="explore-number">01 / FUTURE DESTINATIONS</div>
+          <h3>Space Tourism & Exploration</h3>
+          <p>
+            Discover the emerging space tourism landscape and the possibilities
+            of commercial human spaceflight, from new destinations to
+            extraordinary experiences beyond Earth.
+          </p>
+        </div>
       </article>
 
-      <article class="topic-card">
-        <div class="topic-icon">🛰️</div>
-        <h3>Space Technology & Innovation</h3>
-        <p>Exploring technological developments, engineering and innovations supporting future space travel.</p>
+      <article class="explore-card">
+        <div class="explore-image">
+          <img
+            src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-2.jpeg"
+            alt="Space technology and innovation">
+        </div>
+
+        <div class="explore-copy">
+          <div class="explore-number">02 / TECHNOLOGY</div>
+          <h3>Space Technology & Innovation</h3>
+          <p>
+            Explore the technologies, engineering and innovations helping
+            make future space travel possible, and the systems that will
+            support the next generation of explorers.
+          </p>
+        </div>
       </article>
 
-      <article class="topic-card">
-        <div class="topic-icon">🌍</div>
-        <h3>Earth-to-Space Connectivity</h3>
-        <p>Considering the infrastructure, systems and services connecting Earth with future space destinations.</p>
+      <article class="explore-card">
+        <div class="explore-image">
+          <img
+            src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-3.jpeg"
+            alt="Space exploration and scientific discovery">
+        </div>
+
+        <div class="explore-copy">
+          <div class="explore-number">03 / RESEARCH & DISCOVERY</div>
+          <h3>Research & Scientific Discovery</h3>
+          <p>
+            Consider how scientific research, experimentation and new
+            discoveries can shape human activity in space and expand our
+            understanding of the universe.
+          </p>
+        </div>
       </article>
 
-      <article class="topic-card">
-        <div class="topic-icon">🔬</div>
-        <h3>Research & Scientific Discovery</h3>
-        <p>Examining research, experimentation and scientific knowledge that can shape human activity in space.</p>
-      </article>
+      <article class="explore-card">
+        <div class="explore-image">
+          <img
+            src="https://thehairworkshop.com/wp-content/uploads/2026/10/e409507faeda3fbccbf5b034fb345196.jpg"
+            alt="Future of human space travel">
+        </div>
 
-      <article class="topic-card">
-        <div class="topic-icon">🏢</div>
-        <h3>Business & Industry Opportunities</h3>
-        <p>Discussing commercial opportunities, partnerships and the evolving space tourism business ecosystem.</p>
-      </article>
-
-      <article class="topic-card">
-        <div class="topic-icon">✨</div>
-        <h3>The Future of Human Travel</h3>
-        <p>Imagining how future generations may experience travel, discovery and tourism beyond Earth.</p>
+        <div class="explore-copy">
+          <div class="explore-number">04 / INDUSTRY & OPPORTUNITY</div>
+          <h3>Business & The Future of Human Travel</h3>
+          <p>
+            Explore commercial opportunities, partnerships and the evolving
+            space tourism ecosystem, while imagining how future generations
+            may experience travel beyond Earth.
+          </p>
+        </div>
       </article>
 
     </div>
@@ -1059,10 +1197,15 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- VENUE -->
 <section id="venue">
   <div class="container">
+
     <div class="eyebrow">Our destination</div>
-    <h2 class="section-title">Dubai: Where the future <span class="gradient-text">takes shape</span></h2>
+
+    <h2 class="section-title">
+      Dubai: Where the future <span class="gradient-text">takes shape</span>
+    </h2>
 
     <div class="venue-grid">
+
       <div class="venue-image">
         <img
           src="https://thehairworkshop.com/wp-content/uploads/2026/11/Future-museum.jpeg"
@@ -1070,6 +1213,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       </div>
 
       <div class="venue-copy">
+
         <h3 style="font-family:Orbitron,sans-serif;font-size:22px;margin:0 0 15px;">
           Museum of the Future
         </h3>
@@ -1082,62 +1226,31 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         </p>
 
         <div class="venue-details">
+
           <div class="venue-detail">
             <span>📍</span>
             <span>Museum of the Future, Dubai, United Arab Emirates</span>
           </div>
+
           <div class="venue-detail">
             <span>📅</span>
             <span>23–26 September 2027</span>
           </div>
+
           <div class="venue-detail">
             <span>⏳</span>
             <span>Four days of conference activities</span>
           </div>
+
         </div>
 
-        <a class="btn btn-outline" href="https://museumofthefuture.ae/" target="_blank" rel="noopener">
+        <a class="btn btn-outline"
+           href="https://museumofthefuture.ae/"
+           target="_blank"
+           rel="noopener">
           Discover the Museum ↗
         </a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- IMAGE GALLERY -->
-<section id="gallery">
-  <div class="container">
-    <div class="eyebrow">A glimpse into the future</div>
-    <h2 class="section-title">Explore the <span class="gradient-text">possibilities</span></h2>
-    <p class="section-intro">
-      A visual collection reflecting the spirit of discovery, innovation
-      and the future of space tourism.
-    </p>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-item">
-        <img
-          src="https://thehairworkshop.com/wp-content/uploads/2026/10/Museum-of-the-future.jpeg"
-          alt="Museum of the Future architecture">
-      </div>
-
-      <div class="gallery-item">
-        <img
-          src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-2.jpeg"
-          alt="Space tourism and future technology">
-      </div>
-
-      <div class="gallery-item">
-        <img
-          src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-3.jpeg"
-          alt="Space exploration concept">
-      </div>
-
-      <div class="gallery-item">
-        <img
-          src="https://thehairworkshop.com/wp-content/uploads/2026/10/e409507faeda3fbccbf5b034fb345196.jpg"
-          alt="Future space exploration">
       </div>
     </div>
   </div>
@@ -1146,34 +1259,45 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- WHO SHOULD ATTEND -->
 <section id="participants">
   <div class="container">
+
     <div class="eyebrow">Be part of the conversation</div>
-    <h2 class="section-title">Who should <span class="gradient-text">participate?</span></h2>
+
+    <h2 class="section-title">
+      Who should <span class="gradient-text">participate?</span>
+    </h2>
+
     <p class="section-intro">
       The conference welcomes people from different backgrounds who share
       an interest in technology, innovation and the future of space tourism.
     </p>
 
     <div class="audience-grid">
+
       <div class="audience-card">
         <span>🎓</span>
         <strong>Students</strong>
       </div>
+
       <div class="audience-card">
         <span>🌟</span>
         <strong>Young Professionals</strong>
       </div>
+
       <div class="audience-card">
         <span>🔬</span>
         <strong>Researchers</strong>
       </div>
+
       <div class="audience-card">
         <span>🏢</span>
         <strong>Organizations & Businesses</strong>
       </div>
+
       <div class="audience-card">
         <span>🌌</span>
         <strong>Space Tourism Enthusiasts</strong>
       </div>
+
     </div>
   </div>
 </section>
@@ -1181,8 +1305,13 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- PROGRAMME -->
 <section id="programme">
   <div class="container">
+
     <div class="eyebrow">Four days of discovery</div>
-    <h2 class="section-title">A journey across <span class="gradient-text">four days</span></h2>
+
+    <h2 class="section-title">
+      A journey across <span class="gradient-text">four days</span>
+    </h2>
+
     <p class="section-intro">
       The conference is planned around four days of exploration, knowledge
       exchange and connection. Detailed session schedules and speakers
@@ -1190,6 +1319,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     </p>
 
     <div class="programme-grid">
+
       <article class="day-card">
         <div class="day">DAY 01 · 23 SEPTEMBER</div>
         <h3>Opening & Vision</h3>
@@ -1213,6 +1343,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         <h3>Future Perspectives</h3>
         <p>Sharing perspectives, discussing future possibilities and closing the conference.</p>
       </article>
+
     </div>
   </div>
 </section>
@@ -1220,12 +1351,17 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- REGISTRATION -->
 <section class="registration-section" id="register">
   <div class="container">
+
     <div class="eyebrow">Your journey starts here</div>
-    <h2 class="section-title">Register your <span class="gradient-text">interest</span></h2>
+
+    <h2 class="section-title">
+      Register your <span class="gradient-text">interest</span>
+    </h2>
 
     <div class="registration-layout">
 
       <div class="registration-copy">
+
         <h3 style="font-family:Orbitron,sans-serif;font-size:21px;line-height:1.5;">
           Be part of the conversation shaping tomorrow.
         </h3>
@@ -1248,6 +1384,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
           guaranteed attendance. Further participation details will be
           communicated separately.
         </div>
+
       </div>
 
       <form
@@ -1333,6 +1470,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         </div>
 
       </form>
+
     </div>
   </div>
 </section>
@@ -1342,6 +1480,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
 <!-- FOOTER -->
 <footer>
   <div class="container footer-inner">
+
     <div class="footer-brand">
       FROM DESERT TO SPACE
       <small>Presented by HSW Explorations · Dubai 2027</small>
@@ -1357,6 +1496,7 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     <div style="color:#778ba7;font-size:10px;">
       © 2027 HSW Explorations
     </div>
+
   </div>
 </footer>
 
@@ -1383,6 +1523,7 @@ if (params.get("registration") === "received") {
 
   if (registrationSection) {
     registrationSection.scrollIntoView({ behavior: "smooth" });
+
     const heading = registrationSection.querySelector(".section-title");
 
     if (heading) {
@@ -1390,6 +1531,7 @@ if (params.get("registration") === "received") {
     }
 
     const form = document.getElementById("conferenceForm");
+
     if (form) {
       form.innerHTML =
         '<div style="text-align:center;padding:35px 10px;">' +
