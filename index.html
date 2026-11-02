@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050b1b">
+
 <title>From Desert to Space | HSW Explorations 2027</title>
-<meta name="description" content="Join From Desert to Space, a four-day conference exploring technology and innovation in space tourism at the Museum of the Future, Dubai, 23–26 September 2027.">
+<meta name="description" content="From Desert to Space: Technology and Innovation in Space Tourism. Join us 23–26 September 2027 at the Museum of the Future, Dubai.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +17,12 @@
 :root {
   --bg: #050b1b;
   --bg2: #09152c;
-  --panel: rgba(15, 31, 58, .78);
+  --panel: rgba(15,31,58,.78);
   --blue: #55b9ff;
   --cyan: #7cecff;
   --white: #f4f8ff;
   --muted: #aabbd1;
-  --line: rgba(124, 200, 255, .19);
+  --line: rgba(124,200,255,.19);
 }
 
 * { box-sizing: border-box; }
@@ -57,11 +58,6 @@ body::before {
 
 a { color: inherit; text-decoration: none; }
 
-.container {
-  width: min(1160px, 92%);
-  margin: auto;
-}
-
 h1, h2, h3, p { margin-top: 0; }
 
 h1, h2, .brand, .eyebrow {
@@ -70,6 +66,11 @@ h1, h2, .brand, .eyebrow {
 
 section { padding: 90px 0; }
 
+.container {
+  width: min(1160px, 92%);
+  margin: auto;
+}
+
 .section-heading {
   text-align: center;
   max-width: 780px;
@@ -77,7 +78,7 @@ section { padding: 90px 0; }
 }
 
 .section-heading h2 {
-  font-size: clamp(27px, 4vw, 42px);
+  font-size: clamp(27px,4vw,42px);
   line-height: 1.25;
   margin-bottom: 15px;
 }
@@ -96,7 +97,7 @@ section { padding: 90px 0; }
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #fff, #77d7ff, #8c9dff);
+  background: linear-gradient(90deg,#fff,#77d7ff,#8c9dff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -111,9 +112,9 @@ section { padding: 90px 0; }
   border-radius: 50px;
   font-weight: 800;
   font-size: 14px;
-  background: linear-gradient(100deg, #168de2, #63d6ff);
+  background: linear-gradient(100deg,#168de2,#63d6ff);
   color: #04101e;
-  box-shadow: 0 8px 30px rgba(49, 170, 255, .23);
+  box-shadow: 0 8px 30px rgba(49,170,255,.23);
   transition: .25s;
   border: 0;
   cursor: pointer;
@@ -121,13 +122,13 @@ section { padding: 90px 0; }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(49, 170, 255, .4);
+  box-shadow: 0 12px 35px rgba(49,170,255,.4);
 }
 
 .btn-outline {
   background: transparent;
   color: white;
-  border: 1px solid rgba(124, 220, 255, .55);
+  border: 1px solid rgba(124,220,255,.55);
   box-shadow: none;
 }
 
@@ -137,7 +138,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(4, 10, 24, .88);
+  background: rgba(4,10,24,.9);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
@@ -168,62 +169,187 @@ nav {
 
 .nav-links a:hover { color: var(--cyan); }
 
-/* HERO */
+/* HERO - CIRCULAR ASTRONAUT DESIGN */
 
 .hero {
-  min-height: 700px;
+  min-height: 690px;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 100px 0;
+  padding: 85px 0;
+  overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(3,9,23,.96), rgba(3,9,23,.62), rgba(3,9,23,.25)),
-    url("https://thehairworkshop.com/wp-content/uploads/2026/10/astronaut.jpeg") center/cover no-repeat;
+    radial-gradient(ellipse at 75% 50%,rgba(32,113,190,.22),transparent 40%),
+    linear-gradient(110deg,#040a19,#08172e 65%,#050b1b);
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 35px;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 680px;
+  position: relative;
+  z-index: 3;
 }
 
 .hero h1 {
-  font-size: clamp(35px, 6.5vw, 72px);
-  line-height: 1.15;
+  font-size: clamp(35px,5.5vw,66px);
+  line-height: 1.16;
   margin-bottom: 24px;
   letter-spacing: -2px;
 }
 
 .hero-description {
   color: #d1dfef;
-  max-width: 650px;
+  max-width: 580px;
   line-height: 1.9;
-  font-size: 16px;
-  margin-bottom: 30px;
+  font-size: 15px;
+  margin-bottom: 25px;
 }
 
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 30px 0;
+  gap: 10px;
+  margin: 25px 0;
 }
 
 .meta-pill {
-  padding: 10px 15px;
+  padding: 10px 14px;
   border: 1px solid var(--line);
-  background: rgba(8, 25, 48, .7);
+  background: rgba(8,25,48,.7);
   border-radius: 30px;
   color: #d9f2ff;
-  font-size: 12px;
+  font-size: 11px;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: min(100%,410px);
+  height: 410px;
+  border-radius: 48% 48% 43% 43%;
+  overflow: hidden;
+  transform: rotate(2deg);
+  border: 2px solid rgba(116,218,255,.8);
+  box-shadow:
+    0 0 35px rgba(55,174,255,.28),
+    0 0 100px rgba(55,174,255,.13);
+  z-index: 2;
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.orbit {
+  position: absolute;
+  width: 118%;
+  height: 42%;
+  border: 1px solid rgba(100,216,255,.65);
+  border-radius: 50%;
+  transform: rotate(-27deg);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.orbit.second {
+  width: 125%;
+  height: 52%;
+  border-color: rgba(130,158,255,.45);
+  transform: rotate(42deg);
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 20px var(--cyan);
+  top: 17%;
+  right: 14%;
+  z-index: 4;
+}
+
+.hero-float {
+  position: absolute;
+  z-index: 5;
+  padding: 15px 19px;
+  background: rgba(8,23,46,.93);
+  border: 1px solid rgba(104,211,255,.5);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+  backdrop-filter: blur(12px);
+}
+
+.hero-float strong {
+  display: block;
+  font-family: 'Orbitron',sans-serif;
+  color: var(--cyan);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.hero-float span {
+  display: block;
+  font-size: 9px;
+  color: #d1dfef;
+  letter-spacing: 1.5px;
+}
+
+.float-left { left: -2%; top: 15%; }
+.float-right { right: -2%; bottom: 15%; }
+
+.hero-planet {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,#b3eaff,#2777bc 55%,#10254d);
+  box-shadow: 0 0 35px rgba(65,175,255,.35);
+  top: 4%;
+  right: 12%;
+  z-index: 1;
+}
+
+.hero-star {
+  position: absolute;
+  color: #9ceaff;
+  font-size: 22px;
+  animation: heroTwinkle 2.5s ease-in-out infinite alternate;
+}
+
+.star-one { left: 5%; top: 15%; }
+.star-two { right: 5%; bottom: 20%; animation-delay: 1s; }
+
+@keyframes heroTwinkle {
+  from { opacity: .35; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1.2); }
 }
 
 /* STATS */
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(10, 25, 48, .7);
+  background: rgba(10,25,48,.7);
   margin-top: -45px;
   position: relative;
   z-index: 2;
@@ -240,7 +366,7 @@ nav {
 
 .stat strong {
   display: block;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron',sans-serif;
   font-size: 25px;
   color: var(--cyan);
   margin-bottom: 7px;
@@ -251,15 +377,13 @@ nav {
   color: var(--muted);
 }
 
-/* VIDEO FEATURE */
+/* VIDEO WITH SIDE INSIGHTS */
 
-.video-section {
-  padding-top: 110px;
-}
+.video-section { padding-top: 110px; }
 
 .video-experience {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 340px) minmax(0, 1fr);
+  grid-template-columns: minmax(0,1fr) minmax(230px,340px) minmax(0,1fr);
   gap: 25px;
   align-items: center;
 }
@@ -274,14 +398,14 @@ nav {
   padding: 23px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: linear-gradient(145deg, rgba(20, 45, 78, .8), rgba(8, 19, 40, .88));
+  background: linear-gradient(145deg,rgba(20,45,78,.8),rgba(8,19,40,.88));
   transition: .3s;
 }
 
 .insight-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(99, 214, 255, .55);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+  border-color: rgba(99,214,255,.55);
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
 }
 
 .insight-icon {
@@ -291,7 +415,7 @@ nav {
   display: grid;
   place-items: center;
   color: var(--cyan);
-  background: rgba(74, 177, 255, .13);
+  background: rgba(74,177,255,.13);
   font-size: 21px;
   margin-bottom: 17px;
 }
@@ -314,17 +438,17 @@ nav {
   margin: auto;
   position: relative;
   padding: 8px;
-  border: 1px solid rgba(104, 212, 255, .6);
+  border: 1px solid rgba(104,212,255,.6);
   border-radius: 28px;
-  background: linear-gradient(145deg, rgba(73, 177, 255, .2), rgba(8, 18, 39, .9));
-  box-shadow: 0 0 45px rgba(41, 155, 255, .18);
+  background: linear-gradient(145deg,rgba(73,177,255,.2),rgba(8,18,39,.9));
+  box-shadow: 0 0 45px rgba(41,155,255,.18);
 }
 
 .video-wrap video {
   width: 100%;
   aspect-ratio: 9 / 16;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 21px;
   background: #000;
 }
@@ -342,7 +466,7 @@ nav {
 
 .topic-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 20px;
 }
 
@@ -354,7 +478,7 @@ nav {
 }
 
 .topic-card .number {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron',sans-serif;
   color: var(--cyan);
   font-size: 12px;
   margin-bottom: 20px;
@@ -413,13 +537,13 @@ nav {
 
 .audience-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 15px;
 }
 
 .audience-item {
   padding: 23px;
-  background: rgba(15, 34, 62, .7);
+  background: rgba(15,34,62,.7);
   border: 1px solid var(--line);
   border-radius: 15px;
   color: #e9f5ff;
@@ -450,7 +574,7 @@ nav {
 
 .day-date {
   color: var(--cyan);
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron',sans-serif;
   font-size: 13px;
   line-height: 1.7;
 }
@@ -468,8 +592,8 @@ nav {
 
 .registration-section {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(43, 132, 205, .18), transparent 60%),
-    rgba(6, 15, 32, .8);
+    radial-gradient(ellipse at 50% 0%,rgba(43,132,205,.18),transparent 60%),
+    rgba(6,15,32,.8);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -480,7 +604,7 @@ nav {
   padding: 35px;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(12, 28, 51, .88);
+  background: rgba(12,28,51,.88);
 }
 
 .form-grid {
@@ -503,7 +627,7 @@ nav {
 .field textarea {
   width: 100%;
   padding: 14px;
-  border: 1px solid rgba(137, 185, 224, .25);
+  border: 1px solid rgba(137,185,224,.25);
   background: #08152a;
   color: white;
   border-radius: 10px;
@@ -537,10 +661,44 @@ nav {
 
 .consent input { margin-top: 3px; }
 
+#interestForm button[type="submit"] {
+  position: relative;
+  transition: all .25s ease;
+  min-height: 50px;
+}
+
+#interestForm button[type="submit"]:disabled {
+  opacity: .85;
+  cursor: wait;
+  transform: none;
+}
+
+.form-spinner {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(4,16,30,.25);
+  border-top-color: #04101e;
+  border-radius: 50%;
+  animation: formSpin .7s linear infinite;
+  vertical-align: middle;
+  margin-right: 9px;
+}
+
+@keyframes formSpin {
+  to { transform: rotate(360deg); }
+}
+
 .form-message {
-  margin-top: 15px;
-  color: var(--cyan);
+  padding: 13px;
+  border-radius: 10px;
+  background: rgba(65,180,255,.1);
+  border: 1px solid rgba(85,185,255,.3);
+  color: #aeeaff;
+  text-align: center;
+  line-height: 1.6;
   font-size: 13px;
+  margin-top: 15px;
 }
 
 .form-note {
@@ -561,9 +719,33 @@ footer {
 
 footer .brand { margin-bottom: 12px; }
 
-/* RESPONSIVE */
+/* MOBILE RESPONSIVENESS */
 
-@media (max-width: 850px) {
+@media (max-width:850px) {
+  .hero-layout { grid-template-columns: 1fr; }
+
+  .hero-content {
+    text-align: center;
+    margin: auto;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-meta { justify-content: center; }
+
+  .hero-art {
+    min-height: 440px;
+    margin-top: 10px;
+  }
+
+  .hero-image-wrap {
+    width: min(80vw,370px);
+    height: min(80vw,370px);
+  }
+
   .video-experience {
     grid-template-columns: 1fr 1fr;
   }
@@ -571,16 +753,16 @@ footer .brand { margin-bottom: 12px; }
   .video-wrap {
     grid-column: 1 / -1;
     grid-row: 1;
-    width: min(100%, 320px);
+    width: min(100%,320px);
   }
 
   .insight-column { grid-row: 2; }
 
-  .topic-grid { grid-template-columns: repeat(2, 1fr); }
+  .topic-grid { grid-template-columns: repeat(2,1fr); }
   .venue-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
   section { padding: 65px 0; }
 
   .nav-inner { min-height: 65px; }
@@ -594,29 +776,43 @@ footer .brand { margin-bottom: 12px; }
     font-size: 11px;
   }
 
-  .hero {
-    min-height: 650px;
-    padding: 80px 0;
-    background-position: 60% center;
-  }
+  .hero { padding: 70px 0 55px; }
 
   .hero h1 { letter-spacing: -1px; }
 
   .hero-description { font-size: 14px; }
+
+  .hero-art { min-height: 340px; }
+
+  .hero-image-wrap {
+    width: 270px;
+    height: 270px;
+  }
+
+  .hero-float { padding: 11px 13px; }
+
+  .hero-float strong { font-size: 16px; }
+  .hero-float span { font-size: 8px; }
+
+  .float-left { left: -2%; top: 8%; }
+  .float-right { right: -2%; bottom: 7%; }
+
+  .hero-planet {
+    width: 34px;
+    height: 34px;
+  }
 
   .stats { grid-template-columns: 1fr 1fr; }
 
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
 
-  .video-experience {
-    grid-template-columns: 1fr;
-  }
+  .video-experience { grid-template-columns: 1fr; }
 
   .video-wrap {
     grid-column: auto;
     grid-row: auto;
-    width: min(100%, 300px);
+    width: min(100%,300px);
   }
 
   .insight-column { grid-row: auto; }
@@ -635,14 +831,26 @@ footer .brand { margin-bottom: 12px; }
 
   .form-grid { grid-template-columns: 1fr; gap: 0; }
 }
+
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
   <div class="container nav-inner">
     <a href="#home" class="brand">HSW <span>EXPLORATIONS</span></a>
+
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#topics">Topics</a>
@@ -653,36 +861,72 @@ footer .brand { margin-bottom: 12px; }
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO WITH CIRCULAR ASTRONAUT PHOTO -->
 
 <header class="hero" id="home">
-  <div class="container hero-content">
-    <div class="eyebrow">HSW Explorations presents</div>
+  <div class="container hero-layout">
 
-    <h1>
-      FROM DESERT<br>
-      <span class="gradient-text">TO SPACE</span>
-    </h1>
+    <div class="hero-content">
+      <div class="eyebrow">HSW Explorations presents</div>
 
-    <p class="hero-description">
-      Technology and Innovation in Space Tourism.
-      Discover the ideas, technologies and opportunities shaping
-      humanity's next frontier. Join experts, businesses,
-      researchers and future-focused professionals in Dubai.
-    </p>
+      <h1>
+        FROM DESERT<br>
+        <span class="gradient-text">TO SPACE</span>
+      </h1>
 
-    <div class="hero-meta">
-      <span class="meta-pill">📅 23–26 September 2027</span>
-      <span class="meta-pill">📍 Museum of the Future, Dubai</span>
-      <span class="meta-pill">🚀 4-Day Conference</span>
+      <p class="hero-description">
+        Technology and Innovation in Space Tourism.
+        Discover the ideas, technologies and opportunities shaping
+        humanity's next frontier. Join experts, businesses,
+        researchers and future-focused professionals in Dubai.
+      </p>
+
+      <div class="hero-meta">
+        <span class="meta-pill">📅 23–26 September 2027</span>
+        <span class="meta-pill">📍 Museum of the Future, Dubai</span>
+        <span class="meta-pill">🚀 4-Day Conference</span>
+      </div>
+
+      <a href="#register" class="btn">Register Your Interest →</a>
+
+      <a href="#about" class="btn btn-outline" style="margin-left:8px;">
+        Explore Conference
+      </a>
     </div>
 
-    <a href="#register" class="btn">Register Your Interest →</a>
-    <a href="#about" class="btn btn-outline" style="margin-left:8px;">Explore Conference</a>
+    <div class="hero-art">
+
+      <div class="hero-planet"></div>
+
+      <div class="hero-star star-one">✦</div>
+      <div class="hero-star star-two">✧</div>
+
+      <div class="orbit"></div>
+      <div class="orbit second"></div>
+
+      <div class="orbit-dot"></div>
+
+      <div class="hero-image-wrap">
+        <img
+          src="https://thehairworkshop.com/wp-content/uploads/2026/10/astronaut.jpeg"
+          alt="Astronaut exploring space">
+      </div>
+
+      <div class="hero-float float-left">
+        <strong>04 DAYS</strong>
+        <span>ONE SHARED FRONTIER</span>
+      </div>
+
+      <div class="hero-float float-right">
+        <strong>200+</strong>
+        <span>PARTICIPANT TARGET</span>
+      </div>
+
+    </div>
   </div>
 </header>
 
-<!-- STATS -->
+<!-- CONFERENCE STATS -->
 
 <div class="container">
   <div class="stats">
@@ -690,14 +934,17 @@ footer .brand { margin-bottom: 12px; }
       <strong>04</strong>
       <span>Days of Exploration</span>
     </div>
+
     <div class="stat">
       <strong>2027</strong>
       <span>Future-Focused Conference</span>
     </div>
+
     <div class="stat">
       <strong>Dubai</strong>
       <span>Global Innovation Hub</span>
     </div>
+
     <div class="stat">
       <strong>200+</strong>
       <span>Target Participants</span>
@@ -705,14 +952,18 @@ footer .brand { margin-bottom: 12px; }
   </div>
 </div>
 
-<!-- VIDEO WITH SIDE INSIGHTS -->
+<!-- VIDEO AND CONFERENCE INSIGHTS -->
 
 <section class="video-section" id="about">
   <div class="container">
 
     <div class="section-heading">
       <div class="eyebrow">Beyond the ordinary</div>
-      <h2>Explore the <span class="gradient-text">Future of Space Tourism</span></h2>
+
+      <h2>
+        Explore the <span class="gradient-text">Future of Space Tourism</span>
+      </h2>
+
       <p>
         A new era of exploration is emerging. Discover the vision,
         technology and people taking tourism beyond our planet.
@@ -720,8 +971,6 @@ footer .brand { margin-bottom: 12px; }
     </div>
 
     <div class="video-experience">
-
-      <!-- LEFT SIDE INSIGHTS -->
 
       <div class="insight-column">
 
@@ -754,8 +1003,6 @@ footer .brand { margin-bottom: 12px; }
 
       </div>
 
-      <!-- CENTRE PORTRAIT VIDEO -->
-
       <div>
         <div class="video-wrap">
           <video
@@ -775,10 +1022,9 @@ footer .brand { margin-bottom: 12px; }
             Your browser does not support HTML5 video.
           </video>
         </div>
+
         <div class="video-label">A glimpse into the future</div>
       </div>
-
-      <!-- RIGHT SIDE INSIGHTS -->
 
       <div class="insight-column">
 
@@ -795,7 +1041,7 @@ footer .brand { margin-bottom: 12px; }
           <div class="insight-icon">💡</div>
           <h3>New Opportunities</h3>
           <p>
-            Understand the emerging business models, investment
+            Understand emerging business models, investment
             opportunities and careers within the space sector.
           </p>
         </div>
@@ -810,19 +1056,20 @@ footer .brand { margin-bottom: 12px; }
         </div>
 
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- TOPICS -->
+<!-- CONFERENCE TOPICS -->
 
 <section id="topics">
   <div class="container">
 
     <div class="section-heading">
       <div class="eyebrow">Conference focus</div>
+
       <h2>What Will We <span class="gradient-text">Explore?</span></h2>
+
       <p>
         Four days dedicated to discovering the technologies,
         ideas and possibilities shaping the future of space tourism.
@@ -902,7 +1149,9 @@ footer .brand { margin-bottom: 12px; }
     </div>
 
     <div class="venue-content">
+
       <div class="eyebrow">Our destination</div>
+
       <h2>Where the <span class="gradient-text">Future Begins</span></h2>
 
       <p>
@@ -940,14 +1189,16 @@ footer .brand { margin-bottom: 12px; }
   </div>
 </section>
 
-<!-- WHO SHOULD ATTEND -->
+<!-- WHO SHOULD PARTICIPATE -->
 
 <section id="audience">
   <div class="container">
 
     <div class="section-heading">
       <div class="eyebrow">Be part of the conversation</div>
+
       <h2>Who Should <span class="gradient-text">Participate?</span></h2>
+
       <p>
         Whether you are studying, researching, building a business
         or exploring new opportunities, there is a place for you
@@ -991,14 +1242,16 @@ footer .brand { margin-bottom: 12px; }
   </div>
 </section>
 
-<!-- PROGRAMME -->
+<!-- FOUR-DAY PROGRAMME -->
 
 <section id="programme">
   <div class="container">
 
     <div class="section-heading">
       <div class="eyebrow">Four days. One shared vision.</div>
+
       <h2>A Journey Through <span class="gradient-text">Innovation</span></h2>
+
       <p>
         An indicative overview of the four-day conference journey.
         Detailed sessions and speakers will be announced as the
@@ -1056,14 +1309,16 @@ footer .brand { margin-bottom: 12px; }
   </div>
 </section>
 
-<!-- REGISTRATION -->
+<!-- REGISTRATION FORM -->
 
 <section class="registration-section" id="register">
   <div class="container">
 
     <div class="section-heading">
       <div class="eyebrow">Your journey starts here</div>
+
       <h2>Register Your <span class="gradient-text">Interest</span></h2>
+
       <p>
         Be among the people interested in exploring the future
         of space tourism. Submit your details to express your interest
@@ -1154,6 +1409,7 @@ footer .brand { margin-bottom: 12px; }
         <label class="consent">
           <input type="checkbox" name="Consent"
             value="I agree to be contacted about the conference" required>
+
           <span>
             I agree to be contacted regarding conference updates,
             participation information and related announcements.
@@ -1165,7 +1421,7 @@ footer .brand { margin-bottom: 12px; }
         </button>
 
         <div id="formMessage" class="form-message" hidden>
-          Sending your registration...
+          Please wait while your registration is submitted.
         </div>
 
         <p class="form-note">
@@ -1175,7 +1431,6 @@ footer .brand { margin-bottom: 12px; }
         </p>
 
       </form>
-
     </div>
   </div>
 </section>
@@ -1184,15 +1439,24 @@ footer .brand { margin-bottom: 12px; }
 
 <footer>
   <div class="container">
+
     <div class="brand">HSW <span>EXPLORATIONS</span></div>
-    <p>From Desert to Space: Technology and Innovation in Space Tourism</p>
-    <p>23–26 September 2027 · Museum of the Future · Dubai, UAE</p>
+
+    <p>
+      From Desert to Space: Technology and Innovation in Space Tourism
+    </p>
+
+    <p>
+      23–26 September 2027 · Museum of the Future · Dubai, UAE
+    </p>
+
     <p>© 2027 HSW Explorations. All rights reserved.</p>
+
   </div>
 </footer>
 
 <script>
-/* VIDEO AUTOPLAY SUPPORT */
+/* PORTRAIT VIDEO AUTOPLAY */
 
 const conferenceVideo =
   document.getElementById("conferenceTrailer");
@@ -1202,7 +1466,7 @@ if (conferenceVideo) {
 
   const playVideo = () => {
     conferenceVideo.play().catch(() => {
-      // Some browsers may require the visitor to press play.
+      // Some browsers require the visitor to press play.
     });
   };
 
@@ -1213,30 +1477,57 @@ if (conferenceVideo) {
   }
 }
 
-/* REGISTRATION FORM MESSAGE */
+/* SMOOTH REGISTRATION SUBMISSION */
 
 const interestForm =
   document.getElementById("interestForm");
 
 if (interestForm) {
-  interestForm.addEventListener("submit", function() {
+  interestForm.addEventListener("submit", function(event) {
+
+    if (!interestForm.checkValidity()) {
+      return;
+    }
+
+    const button =
+      interestForm.querySelector('button[type="submit"]');
+
     const message =
       document.getElementById("formMessage");
 
+    if (button.disabled) {
+      event.preventDefault();
+      return;
+    }
+
+    button.disabled = true;
+
+    button.innerHTML =
+      '<span class="form-spinner"></span> Sending your registration...';
+
     message.hidden = false;
-    message.textContent = "🚀 Sending your registration...";
+
+    message.textContent =
+      "Please wait. Your registration is being securely submitted. Thank you for your patience!";
+
+    // Do not prevent the normal form submission.
+    // FormSubmit will process the registration and redirect.
   });
 }
 
-/* SHOW THANK-YOU MESSAGE AFTER FORM SUBMISSION */
+/* THANK-YOU MESSAGE AFTER FORM SUBMISSION */
 
 const params = new URLSearchParams(window.location.search);
 
 if (params.get("registration") === "received") {
-  const registerSection = document.getElementById("register");
+
+  const registerSection =
+    document.getElementById("register");
 
   if (registerSection) {
-    const confirmation = document.createElement("div");
+
+    const confirmation =
+      document.createElement("div");
 
     confirmation.style.cssText =
       "padding:20px;margin:0 auto 25px;max-width:780px;border:1px solid #55b9ff;border-radius:14px;background:rgba(30,130,190,.15);color:#b9efff;text-align:center;line-height:1.7;";
@@ -1245,10 +1536,17 @@ if (params.get("registration") === "received") {
       "<strong>🚀 Thank you for your interest!</strong><br>Your submission has been received. We look forward to sharing more conference updates with you.";
 
     registerSection.querySelector(".container")
-      .insertBefore(confirmation, registerSection.querySelector(".section-heading"));
+      .insertBefore(
+        confirmation,
+        registerSection.querySelector(".section-heading")
+      );
   }
 
-  window.history.replaceState({}, document.title, window.location.pathname);
+  window.history.replaceState(
+    {},
+    document.title,
+    window.location.pathname
+  );
 }
 </script>
 
