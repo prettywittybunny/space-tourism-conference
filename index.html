@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root {
   --bg: #050b1b;
   --bg2: #08152d;
@@ -26,9 +26,13 @@
   --gold: #e8c58b;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -39,15 +43,19 @@ body {
     var(--bg);
   font-family: "DM Sans", sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
+
+/* ===== STAR BACKGROUND ===== */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   opacity: .55;
+
   background-image:
     radial-gradient(1px 1px at 10% 20%, white 100%, transparent),
     radial-gradient(2px 2px at 35% 70%, #8edfff 100%, transparent),
@@ -55,18 +63,123 @@ body::before {
     radial-gradient(1px 1px at 90% 80%, white 100%, transparent),
     radial-gradient(2px 2px at 55% 12%, #a5aaff 100%, transparent),
     radial-gradient(1px 1px at 22% 88%, white 100%, transparent);
+
   background-size: 280px 280px;
 }
 
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+/* ===== PLANETS BACKGROUND ===== */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+
+    /* Large blue planet */
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(92, 193, 255, .42) 0%,
+      rgba(59, 143, 218, .28) 8%,
+      rgba(25, 74, 137, .18) 15%,
+      rgba(8, 28, 65, .08) 21%,
+      transparent 29%
+    ),
+
+    /* Blue planet glow */
+    radial-gradient(
+      ellipse at 88% 12%,
+      transparent 0%,
+      transparent 16%,
+      rgba(125, 234, 255, .14) 17%,
+      transparent 24%
+    ),
+
+    /* Purple planet on left */
+    radial-gradient(
+      circle at 5% 48%,
+      rgba(166, 146, 255, .34) 0%,
+      rgba(113, 87, 203, .23) 8%,
+      rgba(65, 45, 132, .14) 15%,
+      rgba(22, 18, 62, .08) 21%,
+      transparent 28%
+    ),
+
+    /* Purple planet ring */
+    radial-gradient(
+      ellipse at 5% 48%,
+      transparent 0%,
+      transparent 12%,
+      rgba(173, 157, 255, .18) 13%,
+      rgba(125, 106, 216, .10) 14%,
+      transparent 18%
+    ),
+
+    /* Small cyan planet bottom right */
+    radial-gradient(
+      circle at 93% 78%,
+      rgba(125, 234, 255, .30) 0%,
+      rgba(63, 159, 203, .20) 7%,
+      rgba(28, 84, 122, .12) 13%,
+      transparent 20%
+    ),
+
+    /* Small purple planet bottom left */
+    radial-gradient(
+      circle at 14% 88%,
+      rgba(156, 140, 255, .24) 0%,
+      rgba(88, 70, 170, .14) 8%,
+      rgba(41, 30, 96, .08) 14%,
+      transparent 20%
+    );
+
+  opacity: .72;
+  animation: planetsFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes planetsFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0) scale(1.01);
+  }
+
+  100% {
+    transform: translate3d(0, 7px, 0) scale(1);
+  }
+}
+
+/* Keep website content above background */
+
+.navbar,
+main,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
 
 .container {
   width: min(1160px, calc(100% - 40px));
   margin: auto;
 }
 
-section { padding: 95px 0; }
+section {
+  padding: 95px 0;
+}
 
 .eyebrow {
   color: var(--cyan);
@@ -98,6 +211,8 @@ section { padding: 95px 0; }
   color: transparent;
 }
 
+/* BUTTONS */
+
 .btn {
   display: inline-flex;
   justify-content: center;
@@ -128,16 +243,21 @@ section { padding: 95px 0; }
   box-shadow: none;
 }
 
-.btn-outline:hover { background: rgba(83, 183, 255, .1); }
+.btn-outline:hover {
+  background: rgba(83, 183, 255, .1);
+}
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+========================= */
+
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(4, 10, 24, .9);
+  background: rgba(4, 10, 24, .84);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(120, 180, 255, .16);
+  border-bottom: 1px solid rgba(120, 180, 255, .12);
 }
 
 .nav-inner {
@@ -149,18 +269,20 @@ section { padding: 95px 0; }
 }
 
 .brand {
-  display: inline-block;
   font-family: Orbitron, sans-serif;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 2.5px;
-  line-height: 1.4;
-  background: linear-gradient(100deg, #ffffff 5%, #8ce5ff 55%, #b1a4ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 24px rgba(83, 183, 255, .12);
-  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+
+.brand span {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  color: var(--cyan);
+  font-size: 9px;
+  letter-spacing: 3px;
+  font-weight: 700;
 }
 
 .nav-links {
@@ -171,7 +293,9 @@ section { padding: 95px 0; }
   color: #c7d5e9;
 }
 
-.nav-links a:hover { color: var(--cyan); }
+.nav-links a:hover {
+  color: var(--cyan);
+}
 
 .nav-cta {
   padding: 11px 17px;
@@ -183,7 +307,10 @@ section { padding: 95px 0; }
   font-weight: 800;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero {
   min-height: 690px;
   display: flex;
@@ -239,9 +366,17 @@ section { padding: 95px 0; }
   margin: 28px 0;
 }
 
-.hero-meta span { display: flex; align-items: center; gap: 8px; }
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
 .hero-visual {
   min-height: 500px;
@@ -249,6 +384,8 @@ section { padding: 95px 0; }
   display: grid;
   place-items: center;
 }
+
+/* CIRCULAR PHOTO */
 
 .astronaut-circle {
   width: min(390px, 80vw);
@@ -258,6 +395,7 @@ section { padding: 95px 0; }
   position: relative;
   z-index: 2;
   border: 2px solid rgba(125, 234, 255, .75);
+
   box-shadow:
     0 0 0 14px rgba(83, 183, 255, .06),
     0 0 0 32px rgba(83, 183, 255, .035),
@@ -311,11 +449,23 @@ section { padding: 95px 0; }
   letter-spacing: 1.5px;
 }
 
-.label-days { top: 55px; right: -3px; }
-.label-people { bottom: 55px; left: -3px; }
+.label-days {
+  top: 55px;
+  right: -3px;
+}
 
-/* EVENT FACTS */
-.facts-strip { padding: 0 0 45px; }
+.label-people {
+  bottom: 55px;
+  left: -3px;
+}
+
+/* =========================
+   EVENT FACTS
+========================= */
+
+.facts-strip {
+  padding: 0 0 45px;
+}
 
 .facts-grid {
   display: grid;
@@ -332,7 +482,9 @@ section { padding: 95px 0; }
   border-right: 1px solid var(--line);
 }
 
-.fact:last-child { border: 0; }
+.fact:last-child {
+  border: 0;
+}
 
 .fact strong {
   display: block;
@@ -342,11 +494,22 @@ section { padding: 95px 0; }
   margin-bottom: 8px;
 }
 
-.fact span { color: var(--muted); font-size: 11px; }
+.fact span {
+  color: var(--muted);
+  font-size: 11px;
+}
 
-/* VIDEO */
+/* =========================
+   VIDEO
+========================= */
+
 .video-section {
-  background: linear-gradient(180deg, transparent, rgba(12, 30, 58, .45), transparent);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(12, 30, 58, .45),
+    transparent
+  );
 }
 
 .video-layout {
@@ -357,7 +520,10 @@ section { padding: 95px 0; }
   margin-top: 42px;
 }
 
-.insight-column { display: grid; gap: 17px; }
+.insight-column {
+  display: grid;
+  gap: 17px;
+}
 
 .insight-card {
   padding: 21px;
@@ -373,7 +539,10 @@ section { padding: 95px 0; }
   margin-bottom: 10px;
 }
 
-.insight-card h3 { font-size: 14px; margin: 0 0 8px; }
+.insight-card h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
 
 .insight-card p {
   color: var(--muted);
@@ -390,7 +559,9 @@ section { padding: 95px 0; }
   overflow: hidden;
   border: 1px solid rgba(125, 234, 255, .45);
   background: #000;
-  box-shadow: 0 20px 70px rgba(0, 0, 0, .4), 0 0 35px rgba(83, 183, 255, .12);
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, .4),
+    0 0 35px rgba(83, 183, 255, .12);
 }
 
 .video-frame video {
@@ -402,73 +573,61 @@ section { padding: 95px 0; }
   background: #000;
 }
 
-/* WHAT WE WILL EXPLORE - PHOTO CARDS */
-.explore-grid {
+/* =========================
+   TOPICS
+========================= */
+
+.topic-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 38px;
 }
 
-.explore-card {
-  overflow: hidden;
-  border-radius: 20px;
-  background: linear-gradient(145deg, rgba(17, 38, 72, .94), rgba(9, 20, 42, .96));
+.topic-card {
+  padding: 25px;
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 38, 72, .9),
+    rgba(9, 20, 42, .9)
+  );
   border: 1px solid var(--line);
-  transition: .3s ease;
+  transition: .25s ease;
 }
 
-.explore-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(125, 234, 255, .6);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, .25);
+.topic-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(125, 234, 255, .55);
 }
 
-.explore-image {
-  width: 100%;
-  height: 245px;
-  overflow: hidden;
-  background: #101d34;
+.topic-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: rgba(83, 183, 255, .13);
+  font-size: 20px;
+  margin-bottom: 17px;
 }
 
-.explore-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .6s ease;
-}
-
-.explore-card:hover .explore-image img {
-  transform: scale(1.06);
-}
-
-.explore-copy {
-  padding: 24px 25px 27px;
-}
-
-.explore-number {
-  color: var(--cyan);
-  font-family: Orbitron, sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 11px;
-}
-
-.explore-copy h3 {
-  font-family: Orbitron, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+.topic-card h3 {
+  font-size: 15px;
   margin: 0 0 10px;
 }
 
-.explore-copy p {
+.topic-card p {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
+  font-size: 12px;
+  line-height: 1.75;
   margin: 0;
 }
 
-/* VENUE */
+/* =========================
+   VENUE
+========================= */
+
 .venue-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -519,7 +678,41 @@ section { padding: 95px 0; }
   background: rgba(83, 183, 255, .12);
 }
 
-/* AUDIENCE */
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.gallery-item {
+  min-height: 210px;
+  border-radius: 17px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #101d34;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* =========================
+   AUDIENCE
+========================= */
+
 .audience-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -547,7 +740,10 @@ section { padding: 95px 0; }
   line-height: 1.5;
 }
 
-/* PROGRAMME */
+/* =========================
+   PROGRAMME
+========================= */
+
 .programme-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -569,7 +765,10 @@ section { padding: 95px 0; }
   margin-bottom: 13px;
 }
 
-.day-card h3 { font-size: 16px; margin: 0 0 12px; }
+.day-card h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
 
 .day-card p {
   color: var(--muted);
@@ -578,10 +777,17 @@ section { padding: 95px 0; }
   margin: 0;
 }
 
-/* REGISTRATION */
+/* =========================
+   REGISTRATION
+========================= */
+
 .registration-section {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(47, 102, 170, .22), transparent 65%),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(47, 102, 170, .22),
+      transparent 65%
+    ),
     rgba(6, 14, 31, .7);
 }
 
@@ -623,8 +829,13 @@ section { padding: 95px 0; }
   gap: 17px;
 }
 
-.form-group { margin-bottom: 17px; }
-.form-group.full { grid-column: 1 / -1; }
+.form-group {
+  margin-bottom: 17px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
 
 .form-group label {
   display: block;
@@ -654,7 +865,10 @@ section { padding: 95px 0; }
   border-color: var(--cyan);
 }
 
-.form-group select option { background: #0b1930; color: white; }
+.form-group select option {
+  background: #0b1930;
+  color: white;
+}
 
 .form-group textarea {
   min-height: 105px;
@@ -662,7 +876,9 @@ section { padding: 95px 0; }
 }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: #7488a4; }
+.form-group textarea::placeholder {
+  color: #7488a4;
+}
 
 .consent {
   display: flex;
@@ -674,7 +890,10 @@ section { padding: 95px 0; }
   margin: 5px 0 20px;
 }
 
-.consent input { margin-top: 3px; accent-color: var(--blue); }
+.consent input {
+  margin-top: 3px;
+  accent-color: var(--blue);
+}
 
 .submit-btn {
   width: 100%;
@@ -695,7 +914,10 @@ section { padding: 95px 0; }
   text-align: center;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 footer {
   padding: 35px 0;
   border-top: 1px solid var(--line);
@@ -732,25 +954,52 @@ footer {
   font-size: 11px;
 }
 
-.footer-links a:hover { color: var(--cyan); }
+.footer-links a:hover {
+  color: var(--cyan);
+}
 
-/* ANIMATIONS */
+/* =========================
+   ANIMATIONS
+========================= */
+
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: .35; }
-  50% { opacity: .9; }
+  0%, 100% {
+    opacity: .35;
+  }
+
+  50% {
+    opacity: .9;
+  }
 }
 
-.astronaut-circle { animation: float 7s ease-in-out infinite; }
-.floating-label { animation: float 5s ease-in-out infinite; }
-body::before { animation: twinkle 5s ease-in-out infinite; }
+.astronaut-circle {
+  animation: float 7s ease-in-out infinite;
+}
 
-/* TABLET */
+.floating-label {
+  animation: float 5s ease-in-out infinite;
+}
+
+body::before {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 900px) {
+
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -761,73 +1010,93 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     margin-right: auto;
   }
 
-  .hero-meta, .hero-actions { justify-content: center; }
+  .hero-meta,
+  .hero-actions {
+    justify-content: center;
+  }
 
-  .hero-visual { min-height: 450px; }
+  .hero-visual {
+    min-height: 450px;
+  }
 
-  .video-layout { grid-template-columns: 1fr 1fr; }
+  .video-layout {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .video-frame {
     grid-column: 1 / -1;
     grid-row: 1;
   }
 
-  .insight-column { grid-row: 2; }
-
-  .venue-grid, .registration-layout { grid-template-columns: 1fr; }
-
-  .audience-grid { grid-template-columns: repeat(3, 1fr); }
-
-  .programme-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* MOBILE */
-@media (max-width: 650px) {
-  section { padding: 68px 0; }
-
-  .container { width: min(100% - 30px, 1160px); }
-
-  .nav-inner { min-height: 65px; }
-
-  .brand {
-    font-size: 14px;
-    letter-spacing: 2px;
+  .insight-column {
+    grid-row: 2;
   }
 
-  .nav-links { display: none; }
+  .venue-grid,
+  .registration-layout {
+    grid-template-columns: 1fr;
+  }
 
-  .nav-cta {
-    font-size: 10px;
-    padding: 10px 12px;
+  .audience-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .programme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   PHONE
+========================= */
+
+@media (max-width: 650px) {
+
+  section {
+    padding: 68px 0;
+  }
+
+  .container {
+    width: min(100% - 30px, 1160px);
+  }
+
+  .nav-inner {
+    min-height: 65px;
+  }
+
+  .nav-links {
+    display: none;
   }
 
   .hero {
-    padding: 25px 0 65px;
+    padding: 55px 0 65px;
     min-height: auto;
   }
 
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .hero h1 {
+    letter-spacing: -1px;
   }
 
-  /* CIRCULAR PHOTO FIRST ON MOBILE */
   .hero-visual {
-    order: -1;
-    width: 100%;
-    min-height: 350px;
-    margin-bottom: 8px;
+    min-height: 370px;
   }
 
-  .hero-content {
-    order: 2;
-  }
+  /* KEEP CIRCULAR PHOTO ON PHONE */
 
-  .hero h1 { letter-spacing: -1px; }
-
-  .hero-visual .astronaut-circle {
+  .astronaut-circle {
     width: min(290px, 75vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  .astronaut-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .orbit {
@@ -840,16 +1109,31 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     height: 185px;
   }
 
-  .label-days { right: 0; top: 20px; }
-  .label-people { left: 0; bottom: 20px; }
+  .label-days {
+    right: 0;
+    top: 20px;
+  }
 
-  .facts-grid { grid-template-columns: repeat(2, 1fr); }
+  .label-people {
+    left: 0;
+    bottom: 20px;
+  }
 
-  .fact:nth-child(2) { border-right: 0; }
+  .facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-  .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .fact:nth-child(2) {
+    border-right: 0;
+  }
 
-  .video-layout { grid-template-columns: 1fr; }
+  .fact:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .video-layout {
+    grid-template-columns: 1fr;
+  }
 
   .video-frame {
     grid-column: auto;
@@ -857,21 +1141,43 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     width: min(100%, 310px);
   }
 
-  .insight-column { grid-row: auto; }
+  .insight-column {
+    grid-row: auto;
+  }
 
-  .explore-grid { grid-template-columns: 1fr; }
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
 
-  .explore-image { height: 220px; }
+  .venue-image img {
+    height: 260px;
+  }
 
-  .venue-image img { height: 260px; }
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .programme-grid {
+    grid-template-columns: 1fr;
+  }
 
-  .programme-grid { grid-template-columns: 1fr; }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .gallery-item,
+  .gallery-item img {
+    min-height: 150px;
+  }
 
-  .registration-form { padding: 21px; }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .registration-form {
+    padding: 21px;
+  }
 
   .footer-inner {
     text-align: center;
@@ -883,16 +1189,24 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     flex-wrap: wrap;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <header class="navbar">
+
   <div class="container nav-inner">
 
-    <a class="brand" href="#home">HSW EXPLORATIONS</a>
+    <a class="brand" href="#home">
+      HSW EXPLORATIONS
+      <span>SPACE TOURISM CONFERENCE 2027</span>
+    </a>
 
     <nav class="nav-links">
       <a href="#about">About</a>
@@ -901,19 +1215,30 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       <a href="#programme">Programme</a>
     </nav>
 
-    <a class="nav-cta" href="#register">Register Interest ↗</a>
+    <a class="nav-cta" href="#register">
+      Register Interest ↗
+    </a>
 
   </div>
+
 </header>
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
+
 <main>
+
 <section class="hero" id="home">
+
   <div class="container hero-grid">
 
     <div class="hero-content">
 
-      <div class="eyebrow">HSW Explorations presents · Dubai 2027</div>
+      <div class="eyebrow">
+        HSW Explorations presents · Dubai 2027
+      </div>
 
       <h1>
         FROM DESERT<br>
@@ -932,17 +1257,37 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       </p>
 
       <div class="hero-meta">
-        <span>📅 23–26 September 2027</span>
-        <span>📍 Museum of the Future, Dubai</span>
-        <span>✦ 4 Days</span>
+
+        <span>
+          📅 23–26 September 2027
+        </span>
+
+        <span>
+          📍 Museum of the Future, Dubai
+        </span>
+
+        <span>
+          ✦ 4 Days
+        </span>
+
       </div>
 
       <div class="hero-actions">
-        <a class="btn" href="#register">Register Your Interest ↗</a>
-        <a class="btn btn-outline" href="#about">Explore the Conference</a>
+
+        <a class="btn" href="#register">
+          Register Your Interest ↗
+        </a>
+
+        <a class="btn btn-outline" href="#about">
+          Explore the Conference
+        </a>
+
       </div>
 
     </div>
+
+
+    <!-- HERO VISUAL -->
 
     <div class="hero-visual">
 
@@ -950,28 +1295,46 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       <div class="orbit orbit-two"></div>
 
       <div class="astronaut-circle">
+
         <img
           src="https://thehairworkshop.com/wp-content/uploads/2026/10/astronaut.jpeg"
           alt="Astronaut representing the future of space exploration">
+
       </div>
 
       <div class="floating-label label-days">
+
         <strong>04 DAYS</strong>
-        <small>OF INNOVATION</small>
+
+        <small>
+          OF INNOVATION
+        </small>
+
       </div>
 
       <div class="floating-label label-people">
+
         <strong>200+</strong>
-        <small>EXPECTED PARTICIPANTS</small>
+
+        <small>
+          EXPECTED PARTICIPANTS
+        </small>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<!-- KEY FACTS -->
+
+<!-- =========================
+     KEY FACTS
+========================= -->
+
 <div class="container facts-strip">
+
   <div class="facts-grid">
 
     <div class="fact">
@@ -995,16 +1358,27 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     </div>
 
   </div>
+
 </div>
 
-<!-- ABOUT -->
+
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section id="about">
+
   <div class="container">
 
-    <div class="eyebrow">Beyond the ordinary</div>
+    <div class="eyebrow">
+      Beyond the ordinary
+    </div>
 
     <h2 class="section-title">
-      A new perspective on <span class="gradient-text">space tourism</span>
+      A new perspective on
+      <span class="gradient-text">
+        space tourism
+      </span>
     </h2>
 
     <p class="section-intro">
@@ -1016,16 +1390,27 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
     </p>
 
   </div>
+
 </section>
 
-<!-- VIDEO AND INSIGHTS -->
+
+<!-- =========================
+     VIDEO AND INSIGHTS
+========================= -->
+
 <section class="video-section">
+
   <div class="container">
 
-    <div class="eyebrow">Explore the vision</div>
+    <div class="eyebrow">
+      Explore the vision
+    </div>
 
     <h2 class="section-title">
-      The future is <span class="gradient-text">closer than you think</span>
+      The future is
+      <span class="gradient-text">
+        closer than you think
+      </span>
     </h2>
 
     <p class="section-intro">
@@ -1033,31 +1418,74 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       tourism reach beyond our planet.
     </p>
 
+
     <div class="video-layout">
+
+
+      <!-- LEFT INSIGHTS -->
 
       <div class="insight-column">
 
         <article class="insight-card">
-          <div class="number">01 / EXPLORATION</div>
-          <h3>Beyond Earth's Boundaries</h3>
-          <p>Explore the possibilities of human travel beyond our planet and the emerging space tourism landscape.</p>
+
+          <div class="number">
+            01 / EXPLORATION
+          </div>
+
+          <h3>
+            Beyond Earth's Boundaries
+          </h3>
+
+          <p>
+            Explore the possibilities of human travel beyond our planet and
+            the emerging space tourism landscape.
+          </p>
+
         </article>
 
-        <article class="insight-card">
-          <div class="number">02 / TECHNOLOGY</div>
-          <h3>Innovation in Motion</h3>
-          <p>Discover the technologies, engineering and research contributing to the next generation of space travel.</p>
-        </article>
 
         <article class="insight-card">
-          <div class="number">03 / OPPORTUNITY</div>
-          <h3>A Growing Industry</h3>
-          <p>Consider the opportunities for businesses, researchers, students and professionals in this developing field.</p>
+
+          <div class="number">
+            02 / TECHNOLOGY
+          </div>
+
+          <h3>
+            Innovation in Motion
+          </h3>
+
+          <p>
+            Discover the technologies, engineering and research contributing
+            to the next generation of space travel.
+          </p>
+
+        </article>
+
+
+        <article class="insight-card">
+
+          <div class="number">
+            03 / OPPORTUNITY
+          </div>
+
+          <h3>
+            A Growing Industry
+          </h3>
+
+          <p>
+            Consider the opportunities for businesses, researchers, students
+            and professionals in this developing field.
+          </p>
+
         </article>
 
       </div>
 
+
+      <!-- VIDEO -->
+
       <div class="video-frame">
+
         <video
           controls
           autoplay
@@ -1072,145 +1500,251 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
             type="video/mp4">
 
           Your browser does not support the video tag.
+
         </video>
+
       </div>
+
+
+      <!-- RIGHT INSIGHTS -->
 
       <div class="insight-column">
 
         <article class="insight-card">
-          <div class="number">04 / DISCOVERY</div>
-          <h3>Research and Knowledge</h3>
-          <p>Connect with ideas and perspectives from the research and scientific communities.</p>
+
+          <div class="number">
+            04 / DISCOVERY
+          </div>
+
+          <h3>
+            Research and Knowledge
+          </h3>
+
+          <p>
+            Connect with ideas and perspectives from the research and
+            scientific communities.
+          </p>
+
         </article>
 
-        <article class="insight-card">
-          <div class="number">05 / COLLABORATION</div>
-          <h3>Connecting Industries</h3>
-          <p>Bring together organizations, businesses and professionals interested in space tourism.</p>
-        </article>
 
         <article class="insight-card">
-          <div class="number">06 / TOMORROW</div>
-          <h3>Inspiring New Generations</h3>
-          <p>Encourage students and young professionals to explore opportunities in the future space economy.</p>
+
+          <div class="number">
+            05 / COLLABORATION
+          </div>
+
+          <h3>
+            Connecting Industries
+          </h3>
+
+          <p>
+            Bring together organizations, businesses and professionals
+            interested in space tourism.
+          </p>
+
+        </article>
+
+
+        <article class="insight-card">
+
+          <div class="number">
+            06 / TOMORROW
+          </div>
+
+          <h3>
+            Inspiring New Generations
+          </h3>
+
+          <p>
+            Encourage students and young professionals to explore
+            opportunities in the future space economy.
+          </p>
+
         </article>
 
       </div>
 
     </div>
+
   </div>
+
 </section>
 
-<!-- WHAT WILL WE EXPLORE -->
+
+<!-- =========================
+     TOPICS
+========================= -->
+
 <section id="topics">
+
   <div class="container">
 
-    <div class="eyebrow">Conference focus</div>
+    <div class="eyebrow">
+      Conference focus
+    </div>
 
     <h2 class="section-title">
-      What will we <span class="gradient-text">explore?</span>
+      What will we
+      <span class="gradient-text">
+        explore?
+      </span>
     </h2>
 
     <p class="section-intro">
-      A visual journey through the technologies, destinations and ideas
+      A range of perspectives on the technologies, industries and ideas
       contributing to the future of space tourism.
     </p>
 
-    <div class="explore-grid">
 
-      <article class="explore-card">
-        <div class="explore-image">
-          <img
-            src="https://thehairworkshop.com/wp-content/uploads/2026/10/Museum-of-the-future.jpeg"
-            alt="Museum of the Future and futuristic architecture">
+    <div class="topic-grid">
+
+
+      <article class="topic-card">
+
+        <div class="topic-icon">
+          🚀
         </div>
 
-        <div class="explore-copy">
-          <div class="explore-number">01 / FUTURE DESTINATIONS</div>
-          <h3>Space Tourism & Exploration</h3>
-          <p>
-            Discover the emerging space tourism landscape and the possibilities
-            of commercial human spaceflight, from new destinations to
-            extraordinary experiences beyond Earth.
-          </p>
-        </div>
+        <h3>
+          Space Tourism & Exploration
+        </h3>
+
+        <p>
+          Understanding the emerging space tourism landscape and the
+          possibilities of commercial human spaceflight.
+        </p>
+
       </article>
 
-      <article class="explore-card">
-        <div class="explore-image">
-          <img
-            src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-2.jpeg"
-            alt="Space technology and innovation">
+
+      <article class="topic-card">
+
+        <div class="topic-icon">
+          🛰️
         </div>
 
-        <div class="explore-copy">
-          <div class="explore-number">02 / TECHNOLOGY</div>
-          <h3>Space Technology & Innovation</h3>
-          <p>
-            Explore the technologies, engineering and innovations helping
-            make future space travel possible, and the systems that will
-            support the next generation of explorers.
-          </p>
-        </div>
+        <h3>
+          Space Technology & Innovation
+        </h3>
+
+        <p>
+          Exploring technological developments, engineering and innovations
+          supporting future space travel.
+        </p>
+
       </article>
 
-      <article class="explore-card">
-        <div class="explore-image">
-          <img
-            src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-3.jpeg"
-            alt="Space exploration and scientific discovery">
+
+      <article class="topic-card">
+
+        <div class="topic-icon">
+          🌍
         </div>
 
-        <div class="explore-copy">
-          <div class="explore-number">03 / RESEARCH & DISCOVERY</div>
-          <h3>Research & Scientific Discovery</h3>
-          <p>
-            Consider how scientific research, experimentation and new
-            discoveries can shape human activity in space and expand our
-            understanding of the universe.
-          </p>
-        </div>
+        <h3>
+          Earth-to-Space Connectivity
+        </h3>
+
+        <p>
+          Considering the infrastructure, systems and services connecting
+          Earth with future space destinations.
+        </p>
+
       </article>
 
-      <article class="explore-card">
-        <div class="explore-image">
-          <img
-            src="https://thehairworkshop.com/wp-content/uploads/2026/10/e409507faeda3fbccbf5b034fb345196.jpg"
-            alt="Future of human space travel">
+
+      <article class="topic-card">
+
+        <div class="topic-icon">
+          🔬
         </div>
 
-        <div class="explore-copy">
-          <div class="explore-number">04 / INDUSTRY & OPPORTUNITY</div>
-          <h3>Business & The Future of Human Travel</h3>
-          <p>
-            Explore commercial opportunities, partnerships and the evolving
-            space tourism ecosystem, while imagining how future generations
-            may experience travel beyond Earth.
-          </p>
+        <h3>
+          Research & Scientific Discovery
+        </h3>
+
+        <p>
+          Examining research, experimentation and scientific knowledge
+          that can shape human activity in space.
+        </p>
+
+      </article>
+
+
+      <article class="topic-card">
+
+        <div class="topic-icon">
+          🏢
         </div>
+
+        <h3>
+          Business & Industry Opportunities
+        </h3>
+
+        <p>
+          Discussing commercial opportunities, partnerships and the
+          evolving space tourism business ecosystem.
+        </p>
+
+      </article>
+
+
+      <article class="topic-card">
+
+        <div class="topic-icon">
+          ✨
+        </div>
+
+        <h3>
+          The Future of Human Travel
+        </h3>
+
+        <p>
+          Imagining how future generations may experience travel,
+          discovery and tourism beyond Earth.
+        </p>
+
       </article>
 
     </div>
+
   </div>
+
 </section>
 
-<!-- VENUE -->
+
+<!-- =========================
+     VENUE
+========================= -->
+
 <section id="venue">
+
   <div class="container">
 
-    <div class="eyebrow">Our destination</div>
+    <div class="eyebrow">
+      Our destination
+    </div>
 
     <h2 class="section-title">
-      Dubai: Where the future <span class="gradient-text">takes shape</span>
+      Dubai: Where the future
+      <span class="gradient-text">
+        takes shape
+      </span>
     </h2>
+
 
     <div class="venue-grid">
 
+
       <div class="venue-image">
+
         <img
           src="https://thehairworkshop.com/wp-content/uploads/2026/11/Future-museum.jpeg"
           alt="Museum of the Future in Dubai">
+
       </div>
+
 
       <div class="venue-copy">
 
@@ -1225,45 +1759,139 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
           destination for a conference exploring the future of space tourism.
         </p>
 
+
         <div class="venue-details">
 
           <div class="venue-detail">
             <span>📍</span>
-            <span>Museum of the Future, Dubai, United Arab Emirates</span>
+            <span>
+              Museum of the Future, Dubai, United Arab Emirates
+            </span>
           </div>
 
           <div class="venue-detail">
             <span>📅</span>
-            <span>23–26 September 2027</span>
+            <span>
+              23–26 September 2027
+            </span>
           </div>
 
           <div class="venue-detail">
             <span>⏳</span>
-            <span>Four days of conference activities</span>
+            <span>
+              Four days of conference activities
+            </span>
           </div>
 
         </div>
 
-        <a class="btn btn-outline"
-           href="https://museumofthefuture.ae/"
-           target="_blank"
-           rel="noopener">
+
+        <a
+          class="btn btn-outline"
+          href="https://museumofthefuture.ae/"
+          target="_blank"
+          rel="noopener">
+
           Discover the Museum ↗
+
         </a>
 
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- WHO SHOULD ATTEND -->
-<section id="participants">
+
+<!-- =========================
+     IMAGE GALLERY
+========================= -->
+
+<section id="gallery">
+
   <div class="container">
 
-    <div class="eyebrow">Be part of the conversation</div>
+    <div class="eyebrow">
+      A glimpse into the future
+    </div>
 
     <h2 class="section-title">
-      Who should <span class="gradient-text">participate?</span>
+      Explore the
+      <span class="gradient-text">
+        possibilities
+      </span>
+    </h2>
+
+    <p class="section-intro">
+      A visual collection reflecting the spirit of discovery, innovation
+      and the future of space tourism.
+    </p>
+
+
+    <div class="gallery-grid">
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://thehairworkshop.com/wp-content/uploads/2026/10/Museum-of-the-future.jpeg"
+          alt="Museum of the Future architecture">
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-2.jpeg"
+          alt="Space tourism and future technology">
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://thehairworkshop.com/wp-content/uploads/2026/10/download-3.jpeg"
+          alt="Space exploration concept">
+
+      </div>
+
+
+      <div class="gallery-item">
+
+        <img
+          src="https://thehairworkshop.com/wp-content/uploads/2026/10/e409507faeda3fbccbf5b034fb345196.jpg"
+          alt="Future space exploration">
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WHO SHOULD ATTEND
+========================= -->
+
+<section id="participants">
+
+  <div class="container">
+
+    <div class="eyebrow">
+      Be part of the conversation
+    </div>
+
+    <h2 class="section-title">
+      Who should
+      <span class="gradient-text">
+        participate?
+      </span>
     </h2>
 
     <p class="section-intro">
@@ -1271,45 +1899,88 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       an interest in technology, innovation and the future of space tourism.
     </p>
 
+
     <div class="audience-grid">
 
+
       <div class="audience-card">
+
         <span>🎓</span>
-        <strong>Students</strong>
+
+        <strong>
+          Students
+        </strong>
+
       </div>
 
+
       <div class="audience-card">
+
         <span>🌟</span>
-        <strong>Young Professionals</strong>
+
+        <strong>
+          Young Professionals
+        </strong>
+
       </div>
 
+
       <div class="audience-card">
+
         <span>🔬</span>
-        <strong>Researchers</strong>
+
+        <strong>
+          Researchers
+        </strong>
+
       </div>
 
+
       <div class="audience-card">
+
         <span>🏢</span>
-        <strong>Organizations & Businesses</strong>
+
+        <strong>
+          Organizations & Businesses
+        </strong>
+
       </div>
 
+
       <div class="audience-card">
+
         <span>🌌</span>
-        <strong>Space Tourism Enthusiasts</strong>
+
+        <strong>
+          Space Tourism Enthusiasts
+        </strong>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 
-<!-- PROGRAMME -->
+
+<!-- =========================
+     PROGRAMME
+========================= -->
+
 <section id="programme">
+
   <div class="container">
 
-    <div class="eyebrow">Four days of discovery</div>
+    <div class="eyebrow">
+      Four days of discovery
+    </div>
 
     <h2 class="section-title">
-      A journey across <span class="gradient-text">four days</span>
+      A journey across
+      <span class="gradient-text">
+        four days
+      </span>
     </h2>
 
     <p class="section-intro">
@@ -1318,47 +1989,110 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
       will be announced as the programme develops.
     </p>
 
+
     <div class="programme-grid">
 
-      <article class="day-card">
-        <div class="day">DAY 01 · 23 SEPTEMBER</div>
-        <h3>Opening & Vision</h3>
-        <p>Opening activities, introductions and conversations about the future of space tourism and exploration.</p>
-      </article>
 
       <article class="day-card">
-        <div class="day">DAY 02 · 24 SEPTEMBER</div>
-        <h3>Technology & Innovation</h3>
-        <p>Exploring technologies, research and innovation shaping the future of space travel.</p>
+
+        <div class="day">
+          DAY 01 · 23 SEPTEMBER
+        </div>
+
+        <h3>
+          Opening & Vision
+        </h3>
+
+        <p>
+          Opening activities, introductions and conversations about the
+          future of space tourism and exploration.
+        </p>
+
       </article>
 
-      <article class="day-card">
-        <div class="day">DAY 03 · 25 SEPTEMBER</div>
-        <h3>Industry & Collaboration</h3>
-        <p>Business opportunities, partnerships and the growing ecosystem around space tourism.</p>
-      </article>
 
       <article class="day-card">
-        <div class="day">DAY 04 · 26 SEPTEMBER</div>
-        <h3>Future Perspectives</h3>
-        <p>Sharing perspectives, discussing future possibilities and closing the conference.</p>
+
+        <div class="day">
+          DAY 02 · 24 SEPTEMBER
+        </div>
+
+        <h3>
+          Technology & Innovation
+        </h3>
+
+        <p>
+          Exploring technologies, research and innovation shaping the
+          future of space travel.
+        </p>
+
+      </article>
+
+
+      <article class="day-card">
+
+        <div class="day">
+          DAY 03 · 25 SEPTEMBER
+        </div>
+
+        <h3>
+          Industry & Collaboration
+        </h3>
+
+        <p>
+          Business opportunities, partnerships and the growing ecosystem
+          around space tourism.
+        </p>
+
+      </article>
+
+
+      <article class="day-card">
+
+        <div class="day">
+          DAY 04 · 26 SEPTEMBER
+        </div>
+
+        <h3>
+          Future Perspectives
+        </h3>
+
+        <p>
+          Sharing perspectives, discussing future possibilities and
+          closing the conference.
+        </p>
+
       </article>
 
     </div>
+
   </div>
+
 </section>
 
-<!-- REGISTRATION -->
+
+<!-- =========================
+     REGISTRATION
+========================= -->
+
 <section class="registration-section" id="register">
+
   <div class="container">
 
-    <div class="eyebrow">Your journey starts here</div>
+    <div class="eyebrow">
+      Your journey starts here
+    </div>
 
     <h2 class="section-title">
-      Register your <span class="gradient-text">interest</span>
+      Register your
+      <span class="gradient-text">
+        interest
+      </span>
     </h2>
 
+
     <div class="registration-layout">
+
 
       <div class="registration-copy">
 
@@ -1379,13 +2113,20 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         </p>
 
         <div class="registration-note">
-          <strong>Important:</strong> This is an expression-of-interest form.
+
+          <strong>Important:</strong>
+
+          This is an expression-of-interest form.
           Submitting it does not confirm a ticket, paid registration or
           guaranteed attendance. Further participation details will be
           communicated separately.
+
         </div>
 
       </div>
+
+
+      <!-- FORM -->
 
       <form
         class="registration-form"
@@ -1393,155 +2134,404 @@ body::before { animation: twinkle 5s ease-in-out infinite; }
         action="https://formsubmit.co/kirstendigi@gmail.com"
         method="POST">
 
-        <input type="hidden" name="_subject" value="New Conference Interest Registration - From Desert to Space 2027">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_next" value="https://conference.wittybunny.com/?registration=received">
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Conference Interest Registration - From Desert to Space 2027">
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table">
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="true">
+
+        <input
+          type="hidden"
+          name="_next"
+          value="https://conference.wittybunny.com/?registration=received">
+
 
         <div class="form-grid">
 
-          <div class="form-group">
-            <label for="firstName">First Name *</label>
-            <input id="firstName" type="text" name="First Name" placeholder="Enter your first name" required>
-          </div>
 
           <div class="form-group">
-            <label for="lastName">Last Name *</label>
-            <input id="lastName" type="text" name="Last Name" placeholder="Enter your last name" required>
+
+            <label for="firstName">
+              First Name *
+            </label>
+
+            <input
+              id="firstName"
+              type="text"
+              name="First Name"
+              placeholder="Enter your first name"
+              required>
+
           </div>
 
-          <div class="form-group full">
-            <label for="email">Email Address *</label>
-            <input id="email" type="email" name="Email" placeholder="you@example.com" required>
+
+          <div class="form-group">
+
+            <label for="lastName">
+              Last Name *
+            </label>
+
+            <input
+              id="lastName"
+              type="text"
+              name="Last Name"
+              placeholder="Enter your last name"
+              required>
+
           </div>
 
-          <div class="form-group full">
-            <label for="organization">Organization / Institution</label>
-            <input id="organization" type="text" name="Organization / Institution" placeholder="Your company, university or organization">
-          </div>
 
           <div class="form-group full">
-            <label for="professionalField">Professional Field *</label>
-            <select id="professionalField" name="Professional Field" required>
-              <option value="">Select your field</option>
-              <option>Student</option>
-              <option>Young Professional</option>
-              <option>Researcher / Academic</option>
-              <option>Business Owner / Entrepreneur</option>
-              <option>Space Industry Professional</option>
-              <option>Government / Public Sector</option>
-              <option>Technology / Engineering</option>
-              <option>Other</option>
+
+            <label for="email">
+              Email Address *
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="Email"
+              placeholder="you@example.com"
+              required>
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label for="organization">
+              Organization / Institution
+            </label>
+
+            <input
+              id="organization"
+              type="text"
+              name="Organization / Institution"
+              placeholder="Your company, university or organization">
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label for="professionalField">
+              Professional Field *
+            </label>
+
+            <select
+              id="professionalField"
+              name="Professional Field"
+              required>
+
+              <option value="">
+                Select your field
+              </option>
+
+              <option>
+                Student
+              </option>
+
+              <option>
+                Young Professional
+              </option>
+
+              <option>
+                Researcher / Academic
+              </option>
+
+              <option>
+                Business Owner / Entrepreneur
+              </option>
+
+              <option>
+                Space Industry Professional
+              </option>
+
+              <option>
+                Government / Public Sector
+              </option>
+
+              <option>
+                Technology / Engineering
+              </option>
+
+              <option>
+                Other
+              </option>
+
             </select>
+
           </div>
 
+
           <div class="form-group full">
-            <label for="interest">Main Area of Interest *</label>
-            <select id="interest" name="Main Area of Interest" required>
-              <option value="">Choose your area of interest</option>
-              <option>Space Tourism & Exploration</option>
-              <option>Space Technology & Innovation</option>
-              <option>Research & Scientific Discovery</option>
-              <option>Business & Investment Opportunities</option>
-              <option>Industry Partnerships & Collaboration</option>
-              <option>Education & Career Opportunities</option>
-              <option>General Interest</option>
+
+            <label for="interest">
+              Main Area of Interest *
+            </label>
+
+            <select
+              id="interest"
+              name="Main Area of Interest"
+              required>
+
+              <option value="">
+                Choose your area of interest
+              </option>
+
+              <option>
+                Space Tourism & Exploration
+              </option>
+
+              <option>
+                Space Technology & Innovation
+              </option>
+
+              <option>
+                Research & Scientific Discovery
+              </option>
+
+              <option>
+                Business & Investment Opportunities
+              </option>
+
+              <option>
+                Industry Partnerships & Collaboration
+              </option>
+
+              <option>
+                Education & Career Opportunities
+              </option>
+
+              <option>
+                General Interest
+              </option>
+
             </select>
+
           </div>
 
+
           <div class="form-group full">
-            <label for="message">Tell us more (optional)</label>
-            <textarea id="message" name="Message" placeholder="What interests you most about this conference?"></textarea>
+
+            <label for="message">
+              Tell us more (optional)
+            </label>
+
+            <textarea
+              id="message"
+              name="Message"
+              placeholder="What interests you most about this conference?"></textarea>
+
           </div>
+
 
         </div>
+
 
         <label class="consent">
-          <input type="checkbox" name="Consent" value="Agreed" required>
-          <span>I agree to be contacted by HSW Explorations regarding conference updates and participation information. *</span>
+
+          <input
+            type="checkbox"
+            name="Consent"
+            value="Agreed"
+            required>
+
+          <span>
+            I agree to be contacted by HSW Explorations regarding conference
+            updates and participation information. *
+          </span>
+
         </label>
 
-        <button class="btn submit-btn" id="submitButton" type="submit">
+
+        <button
+          class="btn submit-btn"
+          id="submitButton"
+          type="submit">
+
           Submit My Interest ↗
+
         </button>
 
-        <div class="form-message" id="formMessage">
+
+        <div
+          class="form-message"
+          id="formMessage">
+
           Please wait while your interest form is being submitted...
+
         </div>
+
 
       </form>
 
     </div>
+
   </div>
+
 </section>
 
 </main>
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
   <div class="container footer-inner">
 
+
     <div class="footer-brand">
-      FROM DESERT TO SPACE
-      <small>Presented by HSW Explorations · Dubai 2027</small>
+
+      HSW EXPLORATIONS
+
+      <small>
+        From Desert to Space · Dubai 2027
+      </small>
+
     </div>
+
 
     <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#topics">Topics</a>
-      <a href="#venue">Venue</a>
-      <a href="#register">Register Interest</a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#topics">
+        Topics
+      </a>
+
+      <a href="#venue">
+        Venue
+      </a>
+
+      <a href="#register">
+        Register Interest
+      </a>
+
     </div>
+
 
     <div style="color:#778ba7;font-size:10px;">
+
       © 2027 HSW Explorations
+
     </div>
 
+
   </div>
+
 </footer>
 
+
 <script>
-const conferenceForm = document.getElementById("conferenceForm");
-const submitButton = document.getElementById("submitButton");
-const formMessage = document.getElementById("formMessage");
+
+const conferenceForm =
+  document.getElementById("conferenceForm");
+
+const submitButton =
+  document.getElementById("submitButton");
+
+const formMessage =
+  document.getElementById("formMessage");
+
 
 if (conferenceForm) {
+
   conferenceForm.addEventListener("submit", function () {
-    if (!conferenceForm.checkValidity()) return;
+
+    if (!conferenceForm.checkValidity()) {
+      return;
+    }
 
     submitButton.disabled = true;
-    submitButton.textContent = "Submitting...";
-    formMessage.style.display = "block";
+
+    submitButton.textContent =
+      "Submitting...";
+
+    formMessage.style.display =
+      "block";
+
   });
+
 }
 
-// Show a friendly message when the visitor returns from FormSubmit.
-const params = new URLSearchParams(window.location.search);
 
-if (params.get("registration") === "received") {
-  const registrationSection = document.getElementById("register");
+/* Show friendly message when visitor returns from FormSubmit */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+if (
+  params.get("registration") === "received"
+) {
+
+  const registrationSection =
+    document.getElementById("register");
+
 
   if (registrationSection) {
-    registrationSection.scrollIntoView({ behavior: "smooth" });
 
-    const heading = registrationSection.querySelector(".section-title");
+    registrationSection.scrollIntoView({
+      behavior: "smooth"
+    });
+
+
+    const heading =
+      registrationSection.querySelector(
+        ".section-title"
+      );
+
 
     if (heading) {
-      heading.innerHTML = 'Thank you for your <span class="gradient-text">interest!</span>';
+
+      heading.innerHTML =
+        'Thank you for your <span class="gradient-text">interest!</span>';
+
     }
 
-    const form = document.getElementById("conferenceForm");
+
+    const form =
+      document.getElementById(
+        "conferenceForm"
+      );
+
 
     if (form) {
+
       form.innerHTML =
         '<div style="text-align:center;padding:35px 10px;">' +
+
         '<div style="font-size:45px;margin-bottom:18px;">✦</div>' +
+
         '<h3 style="font-family:Orbitron,sans-serif;">Your interest has been submitted</h3>' +
+
         '<p style="color:#a9bad2;line-height:1.8;">Thank you for your interest in From Desert to Space. We look forward to sharing more conference updates with you.</p>' +
+
         '</div>';
+
     }
+
   }
+
 }
+
 </script>
 
 </body>
